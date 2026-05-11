@@ -1,0 +1,58 @@
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,700&family=DM+Mono:wght@400;500&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --ink: #080810;
+  --ink2: #0f0f1a;
+  --ink3: #171724;
+  --edge: rgba(255,255,255,0.07);
+  --edge2: rgba(255,255,255,0.13);
+  --saffron: #ff6b00;
+  --saffron2: #ff8c38;
+  --saffron-dim: rgba(255,107,0,0.1);
+  --green: #00ff88;
+  --red: #ff3b3b;
+  --blue: #4f8cff;
+  --gold: #ffd700;
+  --w: #f0f0f8;
+  --w2: #b0b0c8;
+  --w3: #60607a;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  font-family: 'DM Sans', sans-serif;
+  background: var(--ink);
+  color: var(--w);
+  min-height: 100vh;
+  -webkit-font-smoothing: antialiased;
+}
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  opacity: .025;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+}
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-thumb { background: var(--edge2); border-radius: 3px; }
+
+@keyframes riseUp { from { opacity: 0; transform: translateY(24px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+@keyframes blink  { 0%,100% { opacity: 1; } 50% { opacity: .4; } }
+@keyframes spin   { to { transform: rotate(360deg); } }
+@keyframes shimmer { 0% { background-position: -200% 0; } 100% { background-position: 200% 0; } }
+
+.rise { animation: riseUp .45s cubic-bezier(.22,1,.36,1) both; }
+.fade { animation: fadeIn .3s ease both; }
+.d1{animation-delay:.05s} .d2{animation-delay:.1s} .d3{animation-delay:.15s}
+.d4{animation-delay:.2s}  .d5{animation-delay:.25s} .d6{animation-delay:.3s}
+.dot-live { width:8px; height:8px; border-radius:50%; background:var(--green); box-shadow:0 0 8px var(--green); display:inline-block; animation:blink 2s ease-in-out infinite; }
+.dot-off  { width:8px; height:8px; border-radius:50%; background:var(--edge2); display:inline-block; }
+.bebas { font-family: 'Bebas Neue', sans-serif; }
+.mono  { font-family: 'DM Mono', monospace; }
